@@ -5,6 +5,7 @@ Flint = Ember.Application.create({
 Flint.Router.map(function() {
   this.route('about');
   this.resource('products');
+  this.resource('product', {path: '/products/:title'})
 });
 
 Flint.IndexRoute = Ember.Route.extend({
@@ -25,8 +26,9 @@ var products = [
 	{
 		title: 'Flint',
 		price: 29,
-		description: "Awesome for simple building and our most affordable material" +
-		"yet",
+		description: "From our planet, Flint is one of the hardest material out there. Due to" +
+		"it's magnificient colors, Flint is highly effective at removing damanging Estial's" +
+		"sunray. It is also highly effective against Big Trollers and Lagune's Tidal Wave Attack.",
 		isOnSale: true,
 		image: 'img/flint.png'
 	},
@@ -34,9 +36,20 @@ var products = [
 		title: 'Orine',
 		price: 999,
 		description: "One of the finest materials on Planet Flint. We cherish great" +
-		"build materials and we know Orine will never disappoint.",
+		"build materials and we know Orine will never disappoint. Orine natural healing properties" +
+		"makes it highly desirable product for clerics and healers. Increase your magicka with Orine.",
 		isOnSale: true,
 		image: 'img/orine.png'
+	},
+	{
+		title: 'Ankel',
+		price: 1900,
+		description: "Powerful dark magic resistance properties. It is the best in the realms! Ankel" +
+		"have helped turn 5 Nebulous Wars and the Fifth Tribune Sacrifice. Ankel has medicial benefits." +
+		"The healing properties are not as effective as Orine but Ankel works great in-tandem with other" +
+		"materials.",
+		isOnSale: false,
+		image: 'img/ankel.png'
 	}];
 
 Flint.ProductsRoute = Ember.Route.extend({
@@ -45,6 +58,8 @@ Flint.ProductsRoute = Ember.Route.extend({
 	}
 });
 
-Flint.ProductController = Ember.Controller.extend({
-
+Flint.ProductRoute = Ember.Route.extend({
+	model: function (params) {
+		return products.findBy('title', params.title);
+	}
 });

@@ -102,12 +102,26 @@
 	  <li class="row">
 		  <img {{bind-attr src='product.image'}} class="img-thumbnail col-md-5" style="width:120px"/>
 		  <div class="col-md-7">
-			  <h3>{{product.title}}</h3>
+			  <h3>{{#link-to 'product' this.product.title}}
+				    {{product.title}}
+				  {{/link-to}}
+			  </h3>
 			  <p class="product-description">{{product.description}}</p>
-			  <p><button class="btn btn-success">Buy for ${{product.price}}.00</button></p>
+			  <p><button class="btn btn-success">Buy for ${{product.price}}.00 per kg</button></p>
 		  </div>
 	  </li>
 	  {{/each}}
+  </script>
+
+  <script type="text/x-handlebars" id="product">
+	  <h2>{{title}}</h2>
+	  <p>Description: {{description}}</p>
+	  <p>On Sale: {{isOnSale}}</p>
+	  <p><button class="btn btn-success">Buy for ${{price}}.00 per kg</button></p>
+
+	  <div class="col-md-5">
+		  <img {{bind-attr src='image'}} class="img-thumbnail img-rounded"/>
+	  </div>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
