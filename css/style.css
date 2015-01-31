@@ -2,3 +2,7 @@
 .ember-application {
     margin: 20px;
 }
+
+li {
+    list-style-type: none;
+}
