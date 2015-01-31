@@ -28,9 +28,9 @@
 					  <li>{{#link-to 'products'}}Products{{/link-to}}</li>
 				  </ul>
 				  <ul class="nav navbar-nav navbar-right">
-					  <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-					  <li><a href="../navbar-static-top/">Static top</a></li>
-					  <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+					  <li class="active"><a href="./">Sign In<span class="sr-only">(current)</span></a></li>
+					  <!--<li><a href="../navbar-static-top/">Static top</a></li>-->
+					  <!--<li><a href="../navbar-fixed-top/">Fixed top</a></li>-->
 				  </ul>
 			  </div><!--/.nav-collapse -->
 		  </div><!--/.container-fluid -->
@@ -50,7 +50,7 @@
 
   <script type="text/x-handlebars" id="index">
 	  <h1>Welcome to the Flint Store of the World!</h1>
-	  <h4>We are proud to offer {{productType}} different types of Flints.</h4>
+	  <h4>{{#link-to 'products'}}We are proud to offer {{productType}} different types of Flints.{{/link-to}}</h4>
 	  <p class="text-muted">Last product type updates: {{current_time}}</p>
 	  <img {{bind-attr src="rock_orange"}} alt="rock-orange"/>
 
@@ -104,7 +104,7 @@
 		  <div class="col-sm-3">
 			  <div class="list-group">
 				  {{#each product in model}}
-				  <h3>{{#link-to 'product' this.product.title}}
+				  <h3>{{#link-to 'product' this.product.id}}
 					  {{product.title}}
 					  {{/link-to}}
 				  </h3>
@@ -123,6 +123,18 @@
 	  <p>Description: {{description}}</p>
 	  <p>On Sale: {{isOnSale}}</p>
 	  <p><button class="btn btn-success">Buy for ${{price}}.00 per kg</button></p>
+
+	  <h3>Reviews</h3>
+		  <ul>
+			  {{#each review in reviews}}
+			  <li>{{review.text}}</li>
+			  <br/>
+			  {{else}}
+			  <p class="text-muted">
+				  <em>No reviews yet!. Be the first to write one! :)</em>
+			  </p>
+			  {{/each}}
+		  </ul>
 
 	  <div class="col-md-5">
 		  <img {{bind-attr src='image'}} class="img-thumbnail img-rounded"/>
