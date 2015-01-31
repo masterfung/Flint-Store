@@ -94,23 +94,28 @@
 
   <script type="text/x-handlebars" id="about">
 	<h1>The Story of Flint Store</h1>
+
   </script>
 
   <script type="text/x-handlebars" id="products">
 	  <h1>Our Flint Supply At Its Finest</h1>
-	  {{#each product in model}}
-	  <li class="row">
-		  <img {{bind-attr src='product.image'}} class="img-thumbnail col-md-5" style="width:120px"/>
-		  <div class="col-md-7">
-			  <h3>{{#link-to 'product' this.product.title}}
-				    {{product.title}}
-				  {{/link-to}}
-			  </h3>
-			  <p class="product-description">{{product.description}}</p>
-			  <p><button class="btn btn-success">Buy for ${{product.price}}.00 per kg</button></p>
+
+	  <div class="row">
+		  <div class="col-sm-3">
+			  <div class="list-group">
+				  {{#each product in model}}
+				  <h3>{{#link-to 'product' this.product.title}}
+					  {{product.title}}
+					  {{/link-to}}
+				  </h3>
+				  {{/each}}
+				  <p class="text-muted">Choose a product from the left</p>
+			  </div>
 		  </div>
-	  </li>
-	  {{/each}}
+		  <div class="col-sm-9">
+			  {{outlet}}
+		  </div>
+	  </div>
   </script>
 
   <script type="text/x-handlebars" id="product">

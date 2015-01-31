@@ -4,8 +4,9 @@ Flint = Ember.Application.create({
 
 Flint.Router.map(function() {
   this.route('about');
-  this.resource('products');
-  this.resource('product', {path: '/products/:title'})
+  this.resource('products', function () {
+	  this.resource('product', {path: '/:title'})
+  });
 });
 
 Flint.IndexRoute = Ember.Route.extend({
