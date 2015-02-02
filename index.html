@@ -52,43 +52,54 @@
 	  <h1>Welcome to the Flint Store of the World!</h1>
 	  <h4>{{#link-to 'products'}}We are proud to offer {{productType}} different types of Flints.{{/link-to}}</h4>
 	  <p class="text-muted">Last product type updates: {{current_time}}</p>
-	  <img {{bind-attr src="rock_orange"}} alt="rock-orange"/>
 
-	  <p>
-		  Who's the baby hide when guests come over, yet spread kitty litter all over house yet ears back wide eyed for destroy couch,
-		  or throwup on your pillow jump launch to pounce upon little yarn mouse, bare fangs at toy run hide litter box until treats are fed.
-		  Lick arm hair sleep nap. Chase laser hide when guests come over claws in your leg stand in front of the computer screen i
-		  like big cats and i can not lie. Intently stare at the same spot give attitude find empty spot in cupboard
-		  and sleep all day stand in front of the computer screen. Eat grass, throw it back up stare at ceiling leave
-		  dead animals as gifts. Need to chase tail chase mice bathe private parts with tongue then lick owner's
-		  face spread kitty litter all over house or burrow under covers, or then cats take over the world.
-		  Swat at dog rub face on everything loves cheeseburgers has closed eyes but still sees you climb leg.
+	  <h4>Product On Sale</h4>
+	  {{#each product in onSale}}
+	  <div class="col-sm-4">
+		  <img {{bind-attr src="product.image" }} class="img-thumbnail col-sm-5" alt=""/>
+		  <div class="col-sm-7">
+			  <h2>{{product.title}}</h2>
+			  <p class="product-description">{{product.description}}</p>
+			  <p>{{#link-to 'product' this.product.id class='btn btn-success'}}
+			  Buy for ${{price}}{{/link-to}}</p>
+		  </div>
+	  </div>
+	  {{/each}}
 
-	  </p>
+	  <!--<hr/>-->
 
-	  <p>
-		  Stand in front of the computer screen sleep on keyboard. Peer out window, chatter at birds,
-		  lure them to mouth. Hack up furballs roll on the floor purring your whiskers
-		  off nap all day, yet eat grass, throw it back up. Purr for no reason hack up furballs use lap as chair.
-		  Ears back wide eyed lick arm hair or attack feet flop over, yet inspect anything brought into the house
-		  jump launch to pounce upon little yarn mouse, bare fangs at toy run hide litter box until treats are fed.
-		  Chew iPad power cord. Chew on cable curl into a furry donut for give attitude hate dog, so spit up on light
-		  gray carpet instead of adjacent linoleum. Intently sniff hand attack feet. Chew foot if it fits, i sits yet
-		  shove bum in owner's face like camera lens, poop on grasses purr while eating yet why must they do that,
-		  yet mark territory. Hate dog spit up on light gray carpet instead of adjacent linoleum yet why must they
-		  do that. Then cats take over the world purr while eating. Chew iPad power cord chew iPad power cord, so
-		  chew on cable. Then cats take over the world hide when guests come over find empty spot in cupboard and
-		  sleep all day stare at ceiling. Leave fur on owners clothes leave dead animals as gifts has closed eyes
-		  but still sees you use lap as chair. Hiss at vacuum cleaner.rigued by the shower need to chase tail, or
-		  chew foot hide from vacuum cleaner and intently sniff hand, but vommit food and eat it again make muffins. Sleep on keyboard hide at bottom of staircase to trip human all of a sudden cat goes crazy sit in box and hopped up on catnip. Present belly, scratch hand when stroked claws in your leg. Chase ball of string knock over christmas tree yet use lap as chair, yet purr while eating chase mice. Caticus cuteicus. Run in circles all of a sudden cat goes crazy, so meowing non stop for food. Caticus cuteicus. Eat a plant, kill a hand nap all day, or chew on cable, hiss at vacuum cleaner. Burrow under covers cough furball burrow under covers, or kick up litter but missing until dinner time. Play riveting piece on synthesizer keyboard spread kitty litter all over house so present belly, scratch hand when stroked favor packaging over toy. Chew foot scamper but make meme, make cute face and caticus cuteicus. Stare at ceiling pelt around the house and up and down stairs chasing phantoms and peer out window, chatter at birds, lure them to mouth and vommit food and eat it again i like big cats and i can not lie hide from vacuum cleaner. Need to chase tail stretch, yet claw drapes, but need to chase tail. Lick arm hair then cats take over the world but spit up on light gray carpet instead of adjacent linoleum so lick butt attack feet plan steps for world domination. Spit up on light gray carpet instead of adjacent linoleum eat grass, throw it back up, for purr for no reason cat snacks, and eat a plant, kill a hand scratch the furniture. Always hungry see owner, run in terror hide when guests come over see owner, run in terror hopped up on catnip, and have secret plans. Shake treat bag all of a sudden cat goes crazy ears back wide eyed and see owner, run in terror for spit up on light gray carpet instead of adjacent linoleum cat snacks. Under the bed intrigued by the shower, or peer out window, chatter at birds, lure them to mouth so burrow under covers pooping rainbow while flying in a toasted bread costume in space hide at bottom of staircase to trip human love to play with owner's hair tie. Present belly, scratch hand when stroked sun bathe, chase dog then run away love to play with owner's hair tie cough furball purr for no reason. Chew on cable. Sit by the fire.
+	  <!--<img {{bind-attr src="rock_orange"}} alt="rock-orange"/>-->
 
-	  </p>
+	  <!--<p>-->
+		  <!--Who's the baby hide when guests come over, yet spread kitty litter all over house yet ears back wide eyed for destroy couch,-->
+		  <!--or throwup on your pillow jump launch to pounce upon little yarn mouse, bare fangs at toy run hide litter box until treats are fed.-->
+		  <!--Lick arm hair sleep nap. Chase laser hide when guests come over claws in your leg stand in front of the computer screen i-->
+		  <!--like big cats and i can not lie. Intently stare at the same spot give attitude find empty spot in cupboard-->
+		  <!--and sleep all day stand in front of the computer screen. Eat grass, throw it back up stare at ceiling leave-->
+		  <!--dead animals as gifts. Need to chase tail chase mice bathe private parts with tongue then lick owner's-->
+		  <!--face spread kitty litter all over house or burrow under covers, or then cats take over the world.-->
+		  <!--Swat at dog rub face on everything loves cheeseburgers has closed eyes but still sees you climb leg.-->
 
-	  <ul>
-		  {{#each item in model}}
-		  <li>{{item}}</li>
-		  {{/each}}
-	  </ul>
+	  <!--</p>-->
+
+	  <!--<p>-->
+		  <!--Stand in front of the computer screen sleep on keyboard. Peer out window, chatter at birds,-->
+		  <!--lure them to mouth. Hack up furballs roll on the floor purring your whiskers-->
+		  <!--off nap all day, yet eat grass, throw it back up. Purr for no reason hack up furballs use lap as chair.-->
+		  <!--Ears back wide eyed lick arm hair or attack feet flop over, yet inspect anything brought into the house-->
+		  <!--jump launch to pounce upon little yarn mouse, bare fangs at toy run hide litter box until treats are fed.-->
+		  <!--Chew iPad power cord. Chew on cable curl into a furry donut for give attitude hate dog, so spit up on light-->
+		  <!--gray carpet instead of adjacent linoleum. Intently sniff hand attack feet. Chew foot if it fits, i sits yet-->
+		  <!--shove bum in owner's face like camera lens, poop on grasses purr while eating yet why must they do that,-->
+		  <!--yet mark territory. Hate dog spit up on light gray carpet instead of adjacent linoleum yet why must they-->
+		  <!--do that. Then cats take over the world purr while eating. Chew iPad power cord chew iPad power cord, so-->
+		  <!--chew on cable. Then cats take over the world hide when guests come over find empty spot in cupboard and-->
+		  <!--sleep all day stare at ceiling. Leave fur on owners clothes leave dead animals as gifts has closed eyes-->
+		  <!--but still sees you use lap as chair. Hiss at vacuum cleaner.rigued by the shower need to chase tail, or-->
+		  <!--chew foot hide from vacuum cleaner and intently sniff hand, but vommit food and eat it again make muffins. Sleep on keyboard hide at bottom of staircase to trip human all of a sudden cat goes crazy sit in box and hopped up on catnip. Present belly, scratch hand when stroked claws in your leg. Chase ball of string knock over christmas tree yet use lap as chair, yet purr while eating chase mice. Caticus cuteicus. Run in circles all of a sudden cat goes crazy, so meowing non stop for food. Caticus cuteicus. Eat a plant, kill a hand nap all day, or chew on cable, hiss at vacuum cleaner. Burrow under covers cough furball burrow under covers, or kick up litter but missing until dinner time. Play riveting piece on synthesizer keyboard spread kitty litter all over house so present belly, scratch hand when stroked favor packaging over toy. Chew foot scamper but make meme, make cute face and caticus cuteicus. Stare at ceiling pelt around the house and up and down stairs chasing phantoms and peer out window, chatter at birds, lure them to mouth and vommit food and eat it again i like big cats and i can not lie hide from vacuum cleaner. Need to chase tail stretch, yet claw drapes, but need to chase tail. Lick arm hair then cats take over the world but spit up on light gray carpet instead of adjacent linoleum so lick butt attack feet plan steps for world domination. Spit up on light gray carpet instead of adjacent linoleum eat grass, throw it back up, for purr for no reason cat snacks, and eat a plant, kill a hand scratch the furniture. Always hungry see owner, run in terror hide when guests come over see owner, run in terror hopped up on catnip, and have secret plans. Shake treat bag all of a sudden cat goes crazy ears back wide eyed and see owner, run in terror for spit up on light gray carpet instead of adjacent linoleum cat snacks. Under the bed intrigued by the shower, or peer out window, chatter at birds, lure them to mouth so burrow under covers pooping rainbow while flying in a toasted bread costume in space hide at bottom of staircase to trip human love to play with owner's hair tie. Present belly, scratch hand when stroked sun bathe, chase dog then run away love to play with owner's hair tie cough furball purr for no reason. Chew on cable. Sit by the fire.-->
+
+	  <!--</p>-->
+
   </script>
 
 
@@ -109,7 +120,7 @@
 					  {{/link-to}}
 				  </h3>
 				  {{/each}}
-				  <p class="text-muted">Choose a product from the left</p>
+				  <p class="text-muted">Choose a product from the above.</p>
 			  </div>
 		  </div>
 		  <div class="col-sm-9">

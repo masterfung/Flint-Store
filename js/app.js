@@ -5,7 +5,8 @@ Flint = Ember.Application.create({
 Flint.Router.map(function() {
   this.route('about');
   this.resource('products', function () {
-	  this.resource('product', {path: '/:product_id'})
+	  this.resource('product', {path: '/:product_id'});
+	  this.route('onsale');
   });
 });
 
@@ -20,7 +21,10 @@ Flint.IndexController = Ember.ArrayController.extend({
 	rock_orange: 'img/flint.png',
 	current_time: function () {
 		return(new Date()).toDateString()
-	}.property()
+	}.property(),
+	onSale: function () {
+		return this.filterBy('isOnSale').slice(0,3); //returns all true isOnSale
+	}.property('@each.isOnSale')
 });
 
 Flint.ApplicationAdapter = DS.FixtureAdapter.extend({
@@ -31,7 +35,7 @@ Flint.Product = DS.Model.extend({
 	title: DS.attr('string'),
 	price: DS.attr('number'),
 	description: DS.attr('string'),
-	inOnSale: DS.attr('boolean'),
+	isOnSale: DS.attr('boolean'),
 	image: DS.attr('string'),
 	reviews: DS.hasMany('review', {async:true})
 });
@@ -129,3 +133,9 @@ Flint.Review.FIXTURES = [
 
 	}
 ];
+
+Flint.ProductsOnsaleRoute = Ember.Route.extend({
+	model : function () {
+		return this.modelFor('products').filterBy('isOnSale')
+	}
+});
