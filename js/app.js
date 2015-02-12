@@ -71,6 +71,17 @@ Flint.Product.FIXTURES = [
 		isOnSale: false,
 		image: 'img/ankel.png',
 		reviews: [103, 104, 106]
+	},
+	{   id: 4,
+		title: 'Cryto',
+		price: 3900,
+		description: "Cryto is a rare stone that has the ability to slow down time. Depending on the " +
+		"user and his or her magic levels, this stone has the ability to leverage Soil of Li's time powers." +
+		"Users of this stone should be cautious of its consequences. Wrong usages have angered the Gods and" +
+		"have witnessed tremendous bad omens.",
+		isOnSale: false,
+		image: 'img/cryto.png',
+		reviews: []
 	}];
 
 Flint.ProductsRoute = Ember.Route.extend({
@@ -109,7 +120,7 @@ Flint.Review.FIXTURES = [
 		product: 2,
 		text: "My mother healed great after being infected by Autho's Dyle Spell. As a" +
 		"Cleric of the Healing Wind Tribe, I am able to heal multiple people without" +
-		"getting fatiqued!"
+		"getting fatigued!"
 
 	},
 	{   id: 103,
@@ -136,6 +147,6 @@ Flint.Review.FIXTURES = [
 
 Flint.ProductsOnsaleRoute = Ember.Route.extend({
 	model : function () {
-		return this.modelFor('products').filterBy('isOnSale')
+		return this.modelFor('products').filterBy('isOnSale');
 	}
 });
